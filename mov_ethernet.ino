@@ -29,7 +29,7 @@ void setup()
   Serial.print("IP de Placa Ethernet Shield ");
   Serial.println(Ethernet.localIP());
   
-  //pinMode(LED, OUTPUT);
+  pinMode(LED, OUTPUT);
   pinMode(PIR, INPUT);
   
   Serial.println("Listo :D!");
@@ -37,14 +37,14 @@ void setup()
 
 void loop()
 {
-  //pir_lectura = digitalRead(PIR);
+  pir_lectura = digitalRead(PIR);
 
   String responseMovimiento = "On";
   
   digitalRead(PIR);
   if (pir_lectura == HIGH)
   {
-    //digitalWrite(LED, HIGH);
+    digitalWrite(LED, HIGH);
     Serial.println("Movimiento detectado");
 
     postMov(responseMovimiento);
@@ -54,7 +54,7 @@ void loop()
 
   else
   {
-    //digitalWrite(LED, LOW);
+    digitalWrite(LED, LOW);
     Serial.println("No hay movimiento");
 
     delay(500);
